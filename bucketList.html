@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sloganizer</title>
+
+    <!-- START: only on web, not in the app -->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap-theme.min.css">
+    <!-- END: only on web, not in the app -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="link-menu">
+    <p> <a href="https://eviltester.github.io/TestingApp/index.html">Index</a> | <a href="https://eviltester.github.io/TestingApp/apps/index.html">Apps</a> | <a href="https://eviltester.github.io/TestingApp/games/index.html">Games</a></p>
+</div>
+<!-- START: only on web, not in the app -->
+<nav class="navbar navbar-inverse navbar-static-top">
+    <div class="navbar-header">
+        <a class="navbar-brand" href="/">Follow your dreams </a>
+    </div>
+    <div class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+            <li><a href="/page/blog">Blog</a></li>
+            <li><a href="https://www.linkedin.com/in/madarak/">LinkedIn</a></li>
+            <li><a href="/contact.html">Contact</a></li>
+        </ul>
+    </div>
+</nav>
+
+<h1 class="title"> This years Randomizer </h1>
+<!-- END: only on web, not in the app -->
+
+<div class="title">
+    <button class="title" onclick="changeSlogan()">What am I doing today?</button>
+</div>
+
+<p class="slogan"><span id="slogan">How can I help you?</span></p>
+
+<div class="whatssapthis">
+    <a id="whatssapthis" class="twitter-share-link"
+       href="https://web.whatsapp.com/" target="_blank" rel="noopener noreferrer">
+        share this on web-whatssap!</a>
+</div>
+
+<div id="bookinfo" class="book" style="display:none">
+    <h2>If you like this, you'll probably enjoy the book "<a href='http://eviltester.com/page/dearEvilTester/'>Dear Evil Tester</a>"</h2>
+</div>
+
+<script>
+    var phrases = {
+
+        "to_them" : ["London night out", "Enjoy a night in with pizza", "book a weekend away abroad"],
+    }
+
+    var sentences = [
+            "#to_them",
+    ]
+
+    function randomNumberUpTo(theVal){
+        return Math.floor(Math.random() * theVal)
+    }
+    function getRandomValueFromArray(theArray) {
+        return theArray[randomNumberUpTo(theArray.length)];
+    }
+
+    function getSentence() {
+        return getRandomValueFromArray(sentences);
+    }
+
+    function expand_text(text_to_expand){
+
+        var slen = text_to_expand.length;
+
+        var processedSentence = "";
+        var word = "";
+        var isHash = false;
+
+        for (var pos = 0; pos < slen; pos++)
+        {
+            var c = text_to_expand.charAt(pos);
+
+            if(c == "#"){
+                isHash = true;
+                c=""; // abandon hash we don't want it in the word
+            }
+
+            if(c!=" "){
+                word = word + c;
+            }
+
+            if(c==" " || (pos+1)==slen ){ // space or last char
+                // process word
+                //console.log(word);
+
+                if(isHash){
+                    //console.log("EXPAND IT");
+                    word = expand_text(getRandomValueFromArray(phrases[word]));
+                }
+
+                //console.log(word);
+                processedSentence = processedSentence + word + " ";
+
+                word = "";
+                isHash=false;
+            }
+        }
+
+        return processedSentence;
+    }
+
+    function removeExtraSpaces(text_to_process){
+
+        var slen = text_to_process.length;
+
+        var processedSentence = "";
+        var c ="";
+        var last_c ="";
+
+        for (var pos = 0; pos < slen; pos++)
+        {
+            c = text_to_process.charAt(pos);
+
+            if(c == " " && last_c ==" "){
+                c=""; // abandon it
+            }else{
+                last_c = c;
+            }
+
+            processedSentence = processedSentence + c;
+
+        }
+
+        return processedSentence;
+    }
+
+    function removeSpacesAtStart(text_to_process){
+
+        var slen = text_to_process.length;
+
+        var processedSentence = "";
+        var hitText=false;
+
+        for (var pos = 0; pos < slen; pos++)
+        {
+            c = text_to_process.charAt(pos);
+
+            if(c == " " && hitText===false){
+                c=""; // abandon it
+            }else{
+                hitText=true;
+            }
+
+            processedSentence = processedSentence + c;
+
+        }
+
+        return processedSentence;
+    }
+
+    //http://stackoverflow.com/questions/1026069/how-do-i-make-the-first-letter-of-a-string-uppercase-in-javascript
+    function capitalizeFirstLetter(text_to_process) {
+        return text_to_process.charAt(0).toUpperCase() + text_to_process.slice(1);
+    }
+
+    function removeSpacesBeforePunctuation(text_to_process){
+
+        var slen = text_to_process.length;
+
+        var processedSentence = "";
+        var spaceToAdd=false;
+
+        var punctuation = /[\.\,\!,\?]/;
+
+        for (var pos = 0; pos < slen; pos++)
+        {
+            c = text_to_process.charAt(pos);
+
+            if(c == " "){
+                spaceToAdd=true;
+                c=""; // abandon it
+            }else{
+                // is it punctuation?
+                if(punctuation.test(c)){
+                    spaceToAdd=false;
+                }
+
+                if(spaceToAdd){
+                    processedSentence = processedSentence + " ";
+                    spaceToAdd=false;
+                }
+
+                processedSentence = processedSentence + c;
+            }
+        }
+        return processedSentence;
+    }
+
+    function process_sentence(sentence){
+        var processedSentence = expand_text(sentence);
+        processedSentence = removeExtraSpaces(processedSentence);
+        processedSentence = removeSpacesAtStart(processedSentence);
+        processedSentence = removeSpacesBeforePunctuation(processedSentence);
+        processedSentence = capitalizeFirstLetter(processedSentence);
+        return processedSentence;
+    }
+
+    function random_sentence(){
+
+        var sentence = getSentence();
+
+        return process_sentence(sentence);
+    }
+
+    function changeSlogan(){
+        var slogan = random_sentence();
+        document.getElementById("bookinfo").setAttribute("style","display:none");
+        document.getElementById("slogan").innerHTML=slogan;
+        document.getElementById("whatssapthis").setAttribute("href",
+                encodeURI("https://web.whatsapp.com/"+slogan)+"%20%23RandomThingsToDo");
+
+        if(randomNumberUpTo(25)>23){
+            document.getElementById("bookinfo").setAttribute("style","display");
+        }
+    }
+
+
+</script>
+</body>
+</html>
