@@ -1,11 +1,11 @@
 {
   "name": "bucketlist",
   "version": "1.0.0",
-  "description": "Jos website where we practicing",
+  "description": "Jos website where all the practice is happening",
   "main": "bucketList.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "http-server"
   },
   "repository": {
     "type": "git",
@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/bambambus/joyfull-life/issues"
   },
-  "homepage": "https://github.com/bambambus/joyfull-life#readme"
+  "homepage": "https://github.com/bambambus/joyfull-life#readme",
+  "dependencies": {
+    "sass": "^1.57.1"
+  }
 }
