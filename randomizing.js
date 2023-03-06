@@ -1,11 +1,20 @@
-var bucketList = Array("London night out", "Enjoy a night in with pizza", "Book a weekend away abroad");
+var x = 0;
+var array = Array();
 
-var Phrases = function () {
-    var newbucket = bucketList[Math.floor(Math.random() * bucketList.length)];
-    document.getElementById('quoteshere').innerHTML = newbucket;
-};
-function add_element() {
-    bucketList.push(document.getElementById('listIdeas').value); // adding element to array
-    document.getElementById('listIdeas').value = ''; // Making the text box blank
-    bucketList; // displaying the array elements
+function add_element_to_array() {
+    array[x] = document.getElementById("text1").value;
+    x++;
+    document.getElementById("text1").value = "";
+}
+
+function display_array() {
+    var newbucket = array[Math.floor(Math.random() * array.length)];
+    document.getElementById("Result").innerHTML = newbucket;
+}
+function display_all() {
+    var e = "<hr/>";
+    for (var y = 0; y < array.length; y++) {
+        e += "Element " + y + " = " + array[y] + "<br/>";
+    }
+    document.getElementById("Result").innerHTML = e;
 }
