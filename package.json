@@ -5,7 +5,8 @@
   "main": "bucketList.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "http-server"
+    "start": "http-server",
+    "node-sass": "node-sass --output-style compressed -o dist/css src/scss"
   },
   "repository": {
     "type": "git",
