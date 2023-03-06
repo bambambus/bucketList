@@ -19,5 +19,8 @@
   "homepage": "https://github.com/bambambus/joyfull-life#readme",
   "dependencies": {
     "sass": "^1.57.1"
+  },
+  "devDependencies": {
+    "eslint": "^8.35.0"
   }
 }

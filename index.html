@@ -1,21 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Sloganizer</title>
-     <link rel="stylesheet" href="style.css">
-     <link rel="stylesheet" href="index.css">
-    <script type = "text/javascript" src = "randomizing.js"></script>    
+    <script type="text/javascript" src="randomizing.js"></script>
 </head>
+
 <body>
-<div  class="background">
-<h1 class="title"> Randomizer 2023 </h1>
+    <div class="background">
+        <h1 class="title"> Randomizer 2023 </h1>
+        <input type="text" id="text1"></input>
+        <input type="button" id="button1" value="Add what you wish to do this year"
+            onclick="add_element_to_array();"></input>
+        <input type="button" id="button2" value="Random" onclick="display_array();"></input>
+        <div id="Result"></div>
 
-<div class="caption">
-    <button  class="btn btn-ghost" onclick="changeSlogan()">What am I doing today?</button>
-</div>
+    </div>
 
-<p class="slogan"><span id="slogan">Never underestimate the power you have to take your life in a new direction!</span></p>
-</div>
+
+    <script>
+        var x = 0;
+        var array = Array();
+
+        function add_element_to_array() {
+            array[x] = document.getElementById("text1").value;
+            x++;
+            document.getElementById("text1").value = "";
+        }
+
+        function display_array() {
+            var newbucket = array[Math.floor(Math.random() * array.length)];
+            document.getElementById("Result").innerHTML = newbucket;
+        }
+        function display_all() {
+            var e = "<hr/>";
+
+            for (var y = 0; y < array.length; y++) {
+                e += "Element " + y + " = " + array[y] + "<br/>";
+            }
+            document.getElementById("Result").innerHTML = e;
+        }
+
+    </script>
+    </div>
 </body>
+
 </html>
