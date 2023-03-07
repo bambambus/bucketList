@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Sloganizer</title>
+    <script type="text/javascript" src="../randomizing.js"></script>
+    <link rel="stylesheet" href="../stylesheets/index.css">
+</head>
+
+<body>
+    <div>
+        <div class="card">
+            <h2>Bucket List 2023</h2>
+            <label class="input">
+                <input class="input__field" type="text" id="text1" placeholder=" " />
+                <span class="input__label">Add your wish</span>
+                <input type="button" id="button1" value="Add what you wish to do this year"
+                    onclick="add_element_to_array();"></input>
+            </label>
+            <input type="button" id="button2" value="Random" onclick="display_array_randomly();"></input>
+            <input type="button" id="button3" value="DisplayAll" onclick="display_array();"></input>
+            <input type="button" id="button4" value="Clear" onclick="clear_array();"></input>
+            <div>
+                <div id="Result"></div>
+            </div>
+            <div>
+                <ul id="arrayMessage"> </ul>
+            </div>
+        </div>
+    </div>
+    <div>
+        <p>SPACE TO CALL YOUR API</p>
+    </div>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+</html>
