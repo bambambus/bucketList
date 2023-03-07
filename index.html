@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Sloganizer</title>
+    <script type="text/javascript" src="https://livejs.com/live.js"></script>
     <script type="text/javascript" src="randomizing.js"></script>
     <link rel="stylesheet" href="index.css">
 </head>
@@ -16,9 +17,14 @@
                 </svg>Bucket List 2023</h2>
             <input type="text" id="text1"></input>
             <input type="button" id="button1" value="Add what you wish to do this year" onclick="add_element_to_array();"></input>
-            <input type="button" id="button2" value="Random" onclick="display_array();"></input>
+            <input type="button" id="button2" value="Random" onclick="display_array_randomly();"></input>
+            <input type="button" id="button3" value="DisplayAll" onclick="display_array();"></input>
+            <input type="button" id="button4" value="Clear" onclick="clear_array();"></input>
             <div>
                 <div id="Result"></div>
+            </div>
+            <div>
+                <ul id="arrayMessage" value="All your dreams start here"> </ul>
             </div>
         </div>
     </div>
