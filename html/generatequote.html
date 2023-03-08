@@ -15,6 +15,9 @@
         <section class="quotes">
             <div class="quote-text" id="js-quote-text"></div>
         </section>
+        <section class="quotes">
+            <div class="quote-text-author" id="js-quote-text-author"></div>
+        </section>
         <section class="controls">
             <button type="button" id="js-new-quote" class="new-quote button" onclick="getQuote()">
                 Generate a new quote
@@ -23,32 +26,31 @@
     </div>
 </body>
 <script>
-    const newQuoteButton = document.querySelector('#js-new-quote');
-    newQuoteButton.addEventListener('click', getQuote);
-
-    const endpoint = 'https://api.quotable.io/random';
-    
-    
+    const endpoint = 'https://api.quotable.io/random?count=1';
     async function getQuote() {
-        // The `try` block executes the statements within it as usual.
-        // If an exception is thrown, the statements defined in
-        // the `catch` block will be executed.
-        // Learn more here: https://javascript.info/try-catch
         try {
             const response = await fetch(endpoint)
-            // If the response is not 200 OK...
             if (!response.ok) {
-                // ...throw an error. This causes control flow
-                // to skip to the `catch` block below.
                 throw Error(response.statusText)
             }
-
             const json = await response.json();
-            console.log(json);
+            displayQuote(json.content)
+            displayQuoteAuthor(json.author)
+            console.log("using this free API", endpoint)
+            console.log(json)
         } catch (err) {
             console.log(err)
             alert('Failed to fetch new quote');
         }
+    }
+
+    function displayQuote(quote) {
+        const quoteText = document.querySelector('#js-quote-text');
+        quoteText.textContent = quote;
+    }
+    function displayQuoteAuthor(quoteAuthor) {
+        const quoteTextAuthor = document.querySelector('#js-quote-text-author');
+        quoteTextAuthor.textContent = quoteAuthor;
     }
 </script>
 
