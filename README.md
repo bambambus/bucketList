@@ -4,9 +4,12 @@
 
 npm start 
 
+# Converting css to sass 
 
+- sass checklist.scss checklist.css
 
 # TODO
+- add array directly into the checklist area
 - add unit tests 
 - add visual 
 - add a table with examples on activities we did and what date
