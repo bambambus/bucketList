@@ -12,11 +12,12 @@
     <div>
         <div class="card">
             <h2>Bucket List 2023</h2>
-            <label class="input">
+            <p id="currentAlert"></p>
+            <label class="input" id="labelid">
+
                 <input class="input__field" type="text" id="text1" placeholder=" " />
-                <span class="input__label">Add your wish</span>
-                <input type="button" id="button1" value="Add what you wish to do this year"
-                    onclick="add_element_to_array();"></input>
+                <span class="input__label">Click Here</span>
+                <input type="button" id="button1" value="Add" onclick="add_element_to_array();"></input>
             </label>
             <input type="button" id="button2" value="Random" onclick="display_array_randomly();"></input>
             <input type="button" id="button3" value="DisplayAll" onclick="display_array();"></input>
@@ -30,4 +31,7 @@
             <p></p>
         </div>
     </div>
+
+</body>
+
 </html>
