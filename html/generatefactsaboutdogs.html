@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Generate Random Quote</title>
+    <link rel="stylesheet" href="../stylesheets/quote.css">
+
+
+</head>
+
+<body>
+    <div class="app">
+        <header>Dog Breeds</header>
+        <section class="quotes">
+            <div class="quote-text" id="js-quote-text"></div>
+        </section>
+        <section class="controls">
+            <button type="button" id="js-new-quote" class="new-quote button" onclick="getAllBreedFacts()">
+                Generate dog facts
+            </button>
+            <button type="button" id="js-new-quote" class="new-quote button" onclick="getGermanShepherdFacts()">
+                Generate facts about German Shepherd
+            </button>
+        </section>
+    </div>
+</body>
+<script>
+    const options = {
+        method: 'GET',
+        headers: {
+            'x-api-key': 'live_gayLRRmbhgrsOVBXcIHAVFh422hUy7npIWocGEUf6SzbzOpOrt5CO61LM1OFACel',
+        }
+    };
+
+    const endpoint = 'https://api.thedogapi.com/v1/breeds/115'
+    async function getGermanShepherdFacts() {
+        try {
+            const response = await fetch(endpoint)
+            if (!response.ok) {
+                throw Error(response.statusText)
+            }
+            const json = await response.json();
+            const keys = Object.keys(json)
+            //    console.log(json)
+            for (var i = 0; i < keys.length; i++) {
+                const key = keys[i]
+                console.log(key, json[key])
+            }
+            console.log('full json response', json)
+
+        } catch (err) {
+            console.log(err)
+            alert('Failed to fetch the dog API');
+        }
+    }
+    const endpointAllBreeds = 'https://api.thedogapi.com/v1/breeds/?limit=2&page=0'
+    async function getAllBreedFacts() {
+        try {
+            const response = await fetch(endpointAllBreeds)
+            if (!response.ok) {
+                throw Error(response.statusText)
+            }
+            const json = await response.json();
+            const keys = Object.keys(json)
+            for (var i = 0; i < keys.length; i++) {
+                const key = keys[i];
+                console.log('Dogs breed name: ' + json[key].name + ", origin: " + json[key].origin)
+            }
+        } catch (err) {
+            console.log(err)
+            alert('Failed to fetch the dog API');
+        }
+    }
+    // needs work to display dog information on UI
+    function displayQuote(quote) {
+        const quoteText = document.querySelector('#js-quote-text');
+        quoteText.textContent = quote;
+    }
+</script>
+
+</html>
