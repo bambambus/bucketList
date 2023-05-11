@@ -2,9 +2,10 @@ function calculateTip(bill: number): number {
   return bill >= 50 && bill <= 300 ? bill * 0.15 : bill * 0.2;
 }
 
-const totalBills: number[] = [20, 160, 300];
+const totalBills: number[] = [0, 160, 300];
 const totalTips: number[] = [];
 const totalBillAmount: number[] = [];
+
 for (let i = 0; i < totalBills.length; i++) {
   const tip: number = calculateTip(totalBills[i]);
   totalTips.push(tip);
@@ -12,6 +13,6 @@ for (let i = 0; i < totalBills.length; i++) {
 }
 
 console.log(`
-            Bills: ${bills}, 
-            Tips: ${tips}
-            TotalBill: ${totalBill}`);
+            Bills: ${totalBills}, 
+            Tips: ${totalTips}
+            TotalBill: ${totalBillAmount}`);
