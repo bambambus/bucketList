@@ -1,23 +1,12 @@
-const calcTip = function (bill) {
-  return bill >=50 && bill <=300 ? bill * .15 : bill * .2;
+function calculateTip(bill) {
+    return bill >= 50 && bill <= 300 ? bill * 0.15 : bill * 0.2;
 }
-
-const bills = [20,160, 300]
-
-const tips = []
-const totalBill = []
-
-for(i=0; i < bills.length; i++){
-  const tip = calcTip(bills[i])
-  tips.push(tip);
-  totalBill.push(tip + bills[i])
+var totalBills = [0, 160, 300];
+var totalTips = [];
+var totalBillAmount = [];
+for (var i = 0; i < totalBills.length; i++) {
+    var tip = calculateTip(totalBills[i]);
+    totalTips.push(tip);
+    totalBillAmount.push(tip + totalBills[i]);
 }
-console.log(`
-            Bills: ${bills}, 
-            Tips: ${tips}
-            TotalBill: ${totalBill}`)
-
-
-
-
-
+console.log("\n            Bills: ".concat(totalBills, ", \n            Tips: ").concat(totalTips, "\n            TotalBill: ").concat(totalBillAmount));
