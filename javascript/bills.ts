@@ -1,8 +1,12 @@
 function calculateTip(bill: number): number {
-  return bill >= 50 && bill <= 300 ? bill * 0.15 : bill * 0.2;
+  return bill > 0 && bill < 50
+    ? bill * 0.05
+    : bill >= 50 && bill <= 300
+    ? bill * 0.05
+    : bill * 0.2;
 }
 
-const totalBills: number[] = [0, 160, 300];
+const totalBills: number[] = [0, 20, 160, 300];
 const totalTips: number[] = [];
 const totalBillAmount: number[] = [];
 
