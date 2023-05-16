@@ -9,3 +9,4 @@ function multTwo(a, b) {
     return a * b;
 }
 exports.default = multTwo;
+//# sourceMappingURL=multiply.js.map

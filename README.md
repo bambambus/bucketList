@@ -14,6 +14,11 @@ npm start
 - followed this [project](https://freshman.tech/random-quote-machine/)
 - free [api](https://api.quotable.io/random?count=1) we are using
 
+# Typescript exercises - practice-typescript
+
+- simple exercises that are converted into .ts and written a simple unit test to verify it works as expected.
+- this helps learning with jest
+
 # TODO
 
 - add array directly into the checklist area

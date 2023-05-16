@@ -14,3 +14,4 @@ for (var i = 0; i < totalBills.length; i++) {
     totalBillAmount.push(tip + totalBills[i]);
 }
 console.log("\n            Bills: ".concat(totalBills, ", \n            Tips: ").concat(totalTips, "\n            TotalBill: ").concat(totalBillAmount));
+//# sourceMappingURL=bills.js.map
