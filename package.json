@@ -4,7 +4,8 @@
   "description": "Jos website where all the practice is happening",
   "main": "bucketList.html",
   "scripts": {
-    "test": "jest",
+    "test": "jest --watchAll",
+    "build": "tsc --project tsconfig.build.json",
     "start": "live-server",
     "node-sass": "node-sass --output-style compressed -o dist/css src/scss"
   },
