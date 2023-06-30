@@ -2,7 +2,12 @@
   "compilerOptions": {
     "target": "es5",
     "module": "commonjs",
-    "sourceMap": true,
-    "outDir": "practice-typescript/build"
+    "sourceMap": false,
+    "outDir": "practice-typescript/build",
+    "noEmit": true,
+    "types": [
+      "jest",
+      "node"
+    ],
   }
 }
