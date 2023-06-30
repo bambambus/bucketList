@@ -20,7 +20,8 @@
   "homepage": "https://github.com/bambambus/joyfull-life#readme",
   "dependencies": {
     "chai": "^4.3.7",
-    "sass": "^1.57.1"
+    "sass": "^1.57.1",
+    "ts-jest": "^29.1.1"
   },
   "devDependencies": {
     "@jest/globals": "^29.5.0",
