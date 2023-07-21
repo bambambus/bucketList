@@ -4,7 +4,7 @@ chai.config.truncateThreshold = 0;
 
 import areYouPlayingBanjo from "../playingBanjo";
 
-describe("Basic tests", () => {
+describe("Playing Banjo", () => {
   it("Testing for fixed tests", () => {
     assert.strictEqual(areYouPlayingBanjo("Adam"), "Adam does not play banjo");
     assert.strictEqual(areYouPlayingBanjo("Paul"), "Paul does not play banjo");
