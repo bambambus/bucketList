@@ -1,5 +1,5 @@
 import { describe, expect, test } from "@jest/globals";
-import multTwo from "../multiply";
+import multTwo from "../demo/multiply";
 
 describe("multiply values", () => {
   test("times 3 and 2 to equal 6", () => {

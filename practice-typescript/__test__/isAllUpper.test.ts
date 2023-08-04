@@ -1,5 +1,5 @@
 import { describe, expect, test } from "@jest/globals";
-import isAllUpper from "../isAllUpper";
+import isAllUpper from "../demo/isAllUpper";
 
 describe("check if string is all upper", () => {
   test("check if UPPER string value returns true", () => {

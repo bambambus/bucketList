@@ -1,4 +1,4 @@
-import smallestNumInArray from "../smallestNumberInArray";
+import smallestNumInArray from "../older-exercise/smallestNumberInArray";
 
 const chai = require("chai");
 const assert = chai.assert;

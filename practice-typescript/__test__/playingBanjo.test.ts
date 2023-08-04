@@ -2,7 +2,7 @@ const chai = require("chai");
 const assert = chai.assert;
 chai.config.truncateThreshold = 0;
 
-import areYouPlayingBanjo from "../playingBanjo";
+import areYouPlayingBanjo from "../older-exercise/playingBanjo";
 
 describe("Playing Banjo", () => {
   it("Testing for fixed tests", () => {

@@ -1,5 +1,5 @@
 import { describe, expect, test } from "@jest/globals";
-import isEven from "../isEven";
+import isEven from "../demo/isEven";
 
 describe("check if number is even", () => {
   test("even value should return true", () => {
